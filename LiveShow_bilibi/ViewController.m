@@ -13,6 +13,7 @@
 #import "LVLiveCell.h"
 #import "LVLiveViewController.h"
 #import "UIView+MBView.h"
+#import "Canvas.h"
 static NSString * const ID = @"cell";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *videoTableView;
@@ -61,13 +62,11 @@ static NSString * const ID = @"cell";
 
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _lives.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LVLiveCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     cell.live = _lives[indexPath.row];
@@ -76,6 +75,9 @@ static NSString * const ID = @"cell";
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [cell startCanvasAnimation];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LVLiveViewController *liveVc = [[LVLiveViewController alloc] init];

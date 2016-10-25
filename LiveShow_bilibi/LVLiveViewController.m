@@ -29,21 +29,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
-
+    self.view.backgroundColor = [UIColor whiteColor];
+    [UIView MBAlertViewWithMsg:@"主播在路上..." With:self.view];
     NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://img.meelive.cn/%@",_live.creator.portrait]];
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
 //    self.imageView.alpha = 0.0;
     NSURL *url = [NSURL URLWithString:_live.stream_addr];
-    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
-    options.showHudView = NO;
-    IJKFFMoviePlayerController *playerVc = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:options];
+
+    IJKFFMoviePlayerController *playerVc = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:nil];
     
     // 准备播放
-    
+    [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        if (playerVc.isPlaying) {
+            [UIView MBHiddenWith:self.view];
+        }
+    }];
     [playerVc prepareToPlay];
-
     _player = playerVc;
+    _player.shouldShowHudView = NO;
+    [_player isVideoToolboxOpen];
     playerVc.view.frame = [UIScreen mainScreen].bounds;
     
     [self.view insertSubview:playerVc.view atIndex:0];

@@ -144,6 +144,7 @@
     AVCaptureDeviceInput *toggleDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:toggleDevice error:nil];
     
     // 移除之前摄像头输入设备
+
     [_captureSession removeInput:_currentVideoDeviceInput];
     
     // 添加新的摄像头输入设备
