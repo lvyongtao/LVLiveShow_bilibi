@@ -46,7 +46,7 @@
     }
     
     self.nameLabel.text = live.creator.nick;
-    
+    NSLog(@"name = %@",self.nameLabel.text);
     [self.bigPicView sd_setImageWithURL:imageUrl placeholderImage:nil];
     
     // 设置当前观众数量

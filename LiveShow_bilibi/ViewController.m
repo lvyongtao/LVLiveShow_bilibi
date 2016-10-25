@@ -12,6 +12,7 @@
 #import "MJExtension.h"
 #import "LVLiveCell.h"
 #import "LVLiveViewController.h"
+#import "UIView+MBView.h"
 static NSString * const ID = @"cell";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *videoTableView;
@@ -29,12 +30,13 @@ static NSString * const ID = @"cell";
     self.navigationItem.title = @"LVLiveShow_bilibi";
     
     [_videoTableView registerNib:[UINib nibWithNibName:@"LVLiveCell" bundle:nil] forCellReuseIdentifier:ID];
-    _videoTableView.backgroundColor = [UIColor grayColor];
+//    _videoTableView.backgroundColor = [UIColor grayColor];
     _videoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self loadData];
 }
 
 - (void)loadData{
+    [UIView MBAlertViewWithMsg:@"loading..." With:self.view];
     NSString *url = @"http://116.211.167.106/api/live/aggregation?uid=133825214&interest=1";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -45,6 +47,7 @@ static NSString * const ID = @"cell";
         _lives = [LVLiveModel mj_objectArrayWithKeyValuesArray:responseObject[@"lives"]];
         NSLog(@"lives = %@",_lives);
         [_videoTableView reloadData];
+        [UIView MBHiddenWith:self.view];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];

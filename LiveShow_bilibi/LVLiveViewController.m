@@ -11,6 +11,7 @@
 #import "LVLiveModel.h"
 #import "LVCreatorItem.h"
 #import "UIImageView+WebCache.h"
+#import "UIView+MBView.h"
 
 @interface LVLiveViewController ()
 
@@ -29,16 +30,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
-    
+
     NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://img.meelive.cn/%@",_live.creator.portrait]];
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
-    self.imageView.alpha = 0.0;
+//    self.imageView.alpha = 0.0;
     NSURL *url = [NSURL URLWithString:_live.stream_addr];
-    
-    IJKFFMoviePlayerController *playerVc = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:nil];
+    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
+    options.showHudView = NO;
+    IJKFFMoviePlayerController *playerVc = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:options];
     
     // 准备播放
+    
     [playerVc prepareToPlay];
+
     _player = playerVc;
     playerVc.view.frame = [UIScreen mainScreen].bounds;
     

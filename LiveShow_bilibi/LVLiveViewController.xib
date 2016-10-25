@@ -18,6 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIU-E7-6WS">
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Rxh-5Z-Zrx"/>
                         <constraint firstAttribute="width" constant="46" id="hlV-dm-GSF"/>
@@ -32,11 +33,11 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="WIU-E7-6WS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Do1-c7-IlE"/>
-                <constraint firstItem="0W2-sa-6nf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="GOi-30-52J"/>
-                <constraint firstItem="0W2-sa-6nf" firstAttribute="top" secondItem="WIU-E7-6WS" secondAttribute="bottom" constant="2" id="VZ6-ui-lcY"/>
-                <constraint firstAttribute="trailing" secondItem="0W2-sa-6nf" secondAttribute="trailing" constant="8" id="cAU-pG-rY0"/>
-                <constraint firstAttribute="bottom" secondItem="0W2-sa-6nf" secondAttribute="bottom" constant="8" id="kn3-gt-QTv"/>
-                <constraint firstItem="WIU-E7-6WS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="sMb-N9-umn"/>
+                <constraint firstItem="0W2-sa-6nf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="248" id="GOi-30-52J"/>
+                <constraint firstItem="0W2-sa-6nf" firstAttribute="top" secondItem="WIU-E7-6WS" secondAttribute="bottom" constant="-68" id="VZ6-ui-lcY"/>
+                <constraint firstAttribute="trailing" secondItem="0W2-sa-6nf" secondAttribute="trailing" constant="71" id="cAU-pG-rY0"/>
+                <constraint firstAttribute="bottom" secondItem="0W2-sa-6nf" secondAttribute="bottom" constant="589" id="kn3-gt-QTv"/>
+                <constraint firstItem="WIU-E7-6WS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="58" id="sMb-N9-umn"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
