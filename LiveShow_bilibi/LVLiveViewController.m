@@ -44,9 +44,10 @@
             [UIView MBHiddenWith:self.view];
         }
     }];
+    
     [playerVc prepareToPlay];
     _player = playerVc;
-    _player.shouldShowHudView = NO;
+    _player.shouldShowHudView = YES;
     [_player isVideoToolboxOpen];
     playerVc.view.frame = [UIScreen mainScreen].bounds;
     

@@ -14,7 +14,7 @@
 #import "LVLiveViewController.h"
 #import "UIView+MBView.h"
 #import "Canvas.h"
-static NSString * const ID = @"cell";
+static NSString * const ID = @"videoTableViewcell";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *videoTableView;
 
@@ -68,7 +68,9 @@ static NSString * const ID = @"cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LVLiveCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
+    if (!_lives.count) {
+        return cell;
+    }
     cell.live = _lives[indexPath.row];
     
     return cell;
@@ -81,6 +83,9 @@ static NSString * const ID = @"cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LVLiveViewController *liveVc = [[LVLiveViewController alloc] init];
+    if (!_lives.count) {
+        return ;
+    }
     liveVc.live = _lives[indexPath.row];
     
     [self presentViewController:liveVc animated:YES completion:nil];
