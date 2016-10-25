@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hVv-iZ-4Gj">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-BX-XgM">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="YFm-bD-x0V"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XqB-gc-3Z4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VNd-BX-XgM" secondAttribute="bottom" constant="8" id="DDn-fi-CrA"/>
+                            <constraint firstItem="VNd-BX-XgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="OHT-ue-K8x"/>
+                            <constraint firstItem="VNd-BX-XgM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="q4J-pf-SBK"/>
+                            <constraint firstAttribute="trailing" secondItem="VNd-BX-XgM" secondAttribute="trailing" constant="8" id="w9I-SV-WZu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="46f-zF-VEG"/>
+                    <connections>
+                        <outlet property="videoTableView" destination="VNd-BX-XgM" id="7SJ-zz-SNa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013.5999999999999" y="-43.628185907046479"/>
+        </scene>
+        <!--直播-->
+        <scene sceneID="wck-VB-ewk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AB2-dH-lnk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="直播" image="liveshowBar" badgeValue="0" id="e71-GS-Hyf">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BB0-dd-OpT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ghh-Px-7RV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nvr-u7-KKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="-42"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="k7h-T8-U9M">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hVv-iZ-4Gj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="l2X-WE-ReU">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AB2-dH-lnk" kind="relationship" relationship="viewControllers" id="Da0-kE-fbT"/>
+                        <segue destination="X6I-gO-9tx" kind="relationship" relationship="viewControllers" id="dOF-7y-tLp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MA7-QN-MUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--我要直播-->
+        <scene sceneID="kHn-XJ-hs0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X6I-gO-9tx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我要直播" image="myshowBar" id="d3d-I9-MLk"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lWB-Ne-17d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C0e-5q-W5h" kind="relationship" relationship="rootViewController" id="I92-Vy-5zI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVl-3i-avp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="669"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tV8-Fb-ftz">
+            <objects>
+                <viewController id="C0e-5q-W5h" customClass="LVRECViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z1O-3u-3fq"/>
+                        <viewControllerLayoutGuide type="bottom" id="e7R-sX-5GA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="byg-TO-Zvw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7o-ki-tpu">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="gIA-m3-6iT"/>
+                                    <constraint firstAttribute="width" constant="32" id="jo8-cl-CVg"/>
+                                </constraints>
+                                <state key="normal" image="cameraShow"/>
+                                <connections>
+                                    <action selector="toggleCapture:" destination="C0e-5q-W5h" eventType="touchUpInside" id="zVj-Tc-TCC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V7o-ki-tpu" firstAttribute="top" secondItem="z1O-3u-3fq" secondAttribute="bottom" constant="90" id="msh-ay-Ltd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V7o-ki-tpu" secondAttribute="trailing" constant="28" id="w6K-xQ-1Zd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gPc-Ar-j9V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2R-EH-sUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="669"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cameraShow" width="32" height="32"/>
+        <image name="liveshowBar" width="25" height="25"/>
+        <image name="myshowBar" width="32" height="32"/>
+    </resources>
+</document>
